@@ -1,8 +1,15 @@
-Snap
 
-Requires WWW::Search
+Snap.pm requires WWW::Search.
 
-Backend for WWW::Search for searching www.snap.com
+Additional information on using this script and changelog
+may be found in Snap.pm POD doc's or, after installation, view the 
+man pages with man Snap
 
-For a list of current working backends see http://members.xoom.com/backends
+For instructions on how to install the script, see the
+file INSTALL.
+
+See also http://www.perl.com/CPAN-local/modules/by-module/WWW/
+For latest WWW::Search version and additional documentation.
+
+Auto genereated by makeMOD.pl by Jim Smyser
 

@@ -1,5 +1,6 @@
 Snap.pm
+Makefile.PL
+t/test.t
 README
+INSTALL
 MANIFEST
-Makefile.PL	 
-test.pl

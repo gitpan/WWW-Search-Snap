@@ -1,7 +1,7 @@
 # Snap.pm
 # by Jim Smyser
 # Copyright (C) 1996-2000 by Jim Smyser & USC/ISI
-# $Id: Snap.pm,v 2.05 2000/04/04 09:51:03 jims Exp $
+# $Id: Snap.pm,v 2.06 2000/06/05 16:30:18 jims Exp $
 #
 # Complete copyright notice follows below.
 #
@@ -97,7 +97,7 @@ require Exporter;
 @EXPORT = qw();
 @EXPORT_OK = qw();
 @ISA = qw(WWW::Search Exporter);
-$VERSION = '2.05';
+$VERSION = '2.06';
 
 $MAINTAINER = 'Jim Smyser <jsmyser@bigfoot.com>';
 $TEST_CASES = <<"ENDTESTCASES";
@@ -196,7 +196,7 @@ sub native_retrieve_some {
        print STDERR "**Beginning Line...\n" if ($self->{_debug});
        $state = $HITS;
 
-   } if ($state eq $HITS && m@^<font><a href="/slog/.*?&u=([^"]+)">(.*)</a>.*?<br>(.*)<br>@i) {
+   } if ($state eq $HITS && m@^<font><a href="/slog/.*?&u=([^"]+)&r=.*?">(.*)</a>.*?<br>(.*)<br>@i) {
        print STDERR "**Found a URL\n" if 2 <= $self->{_debug};
        my ($url,$title, $desc) = ($1,$2,$3);
        if (defined($hit)) 
@@ -210,7 +210,7 @@ sub native_retrieve_some {
        $hit->description(strip_tags($desc));
        $state = $HITS;
 
-   } elsif ($state eq $HITS && m|<font><b><a href="http://redirect.*?u=([^"]+)\&q=.*?>(.*)</a></b>.*?<br>(.*)<br>|i) {
+   } elsif ($state eq $HITS && m|<font><b><a href="http://redirect.*?u=([^"]+)\&.*?>(.*)</a></b>.*?<br>(.*)<br>|i) {
        print STDERR "**Found a URL\n" if 2 <= $self->{_debug};
        my ($url,$title, $desc) = ($1,$2,$3);
        if (defined($hit)) 
@@ -242,5 +242,8 @@ sub native_retrieve_some {
     return $hits_found;
        } # native_retrieve_some
 1;
+
+
+
 
 
