@@ -1,0 +1,8 @@
+Snap
+
+Requires WWW::Search
+
+Backend for WWW::Search for searching www.snap.com
+
+For a list of current working backends see http://members.xoom.com/backends
+
